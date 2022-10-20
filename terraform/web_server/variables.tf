@@ -4,6 +4,11 @@ variable "aws_region" {
   default     = "eu-west-1"
 }
 
+variable "environment" {
+  description = "the env we are deploying to"
+  type = string
+}
+
 variable "iam_role" {
   type        = string
   description = "AWS Role."

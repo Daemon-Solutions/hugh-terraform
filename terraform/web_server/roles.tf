@@ -1,5 +1,5 @@
-resource "aws_iam_role" "test_role" {
-  name = var.iam_role
+resource "aws_iam_role" "web_server" {
+  name = "${ var.environment }-web-server"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -16,6 +16,6 @@ resource "aws_iam_role" "test_role" {
   })
 
   tags = {
-    tag-key = "hugh-terraform"
+    environment = var.environment,
   }
 }
