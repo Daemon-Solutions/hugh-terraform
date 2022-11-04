@@ -5,6 +5,7 @@ include {
 
 inputs = {
     environment = "nonprod"
+    aws_instance_type="t3.nano"
 }
 
 terraform {

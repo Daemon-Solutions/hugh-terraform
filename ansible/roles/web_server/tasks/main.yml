@@ -1,0 +1,25 @@
+---
+- name: install python
+  ansible.builtin.apt:
+    name: python
+    state: latest
+    update_cache: yes
+
+- name: Upgrade pip to latest vesion
+  pip:
+    name: pip
+    extra_args: --upgrade
+
+- name: install the package, force upgrade
+  pip: 
+    name: numpy
+    extra_args: --upgrade
+
+- name: create a new directory
+  file:
+    path: /tmp/names
+    state: directory
+
+# - template:
+#   src: /templates/config.yml.j2
+#   dest: /names/name.conf

@@ -1,5 +1,5 @@
 resource "aws_iam_role" "web_server" {
-  name = "${ var.environment }-web-server"
+  name = "${var.environment}-web-server"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"

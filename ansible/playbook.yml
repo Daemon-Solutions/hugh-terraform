@@ -1,0 +1,9 @@
+---
+
+- name: "Web server Playbook"
+  hosts: all
+  become_user: root
+  become: yes
+
+  roles:
+    - role: "web_server"

@@ -1,12 +1,18 @@
-resource "aws_placement_group" "test" {
-  name     = "test"
+resource "aws_placement_group" "web_server" {
+  name     = "${var.environment}-web_server"
   strategy = "cluster"
+  tags = {
+    "environment" = var.environment,
+  }
 }
 
-resource "aws_autoscaling_group" "bar" {
-  name                      = "foobar3-terraform-test"
-  max_size                  = 5
-  min_size                  = 1
-  launch_configuration      = aws_launch_configuration.server.name
-  vpc_zone_identifier       = ["vpc-0db2e99b93ecd89c7"]
+resource "aws_autoscaling_group" "web_server" {
+  name                 = "${var.environment}-web-server"
+  max_size             = 5
+  min_size             = 1
+  launch_template {
+    id      = aws_launch_template.server.id
+    version = "$Latest"
+  }
+ vpc_zone_identifier  = ["subnet-14f8e852"]
 }

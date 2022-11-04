@@ -6,11 +6,17 @@ variable "aws_region" {
 
 variable "environment" {
   description = "the env we are deploying to"
-  type = string
+  type        = string
 }
 
 variable "iam_role" {
   type        = string
   description = "AWS Role."
-  default     = "test_role"
+  default     = "web_server"
+}
+
+variable "aws_instance_type" {
+  type        = string
+  description = "AWS instance type"
+  default     = "t3.nano"
 }

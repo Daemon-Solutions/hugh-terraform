@@ -5,6 +5,7 @@ include {
 
 inputs = {
     environment = "prod"
+    aws_instance_type = "t3.micro"
 }
 
 terraform {
